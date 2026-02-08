@@ -160,6 +160,27 @@ p {
   cursor: not-allowed;
 }
 
+/* Share Button */
+#share-btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff6b9d, #c06c84);
+  color: white;
+  box-shadow: 0 0 18px rgba(255, 107, 157, 0.35);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#share-btn:hover {
+  transform: scale(1.05);
+}
+
+#share-btn:active {
+  transform: scale(0.98);
+}
+
 /* -----------------------------------------
    MEMORY BOARD HEART GRID
 ----------------------------------------- */
@@ -337,3 +358,64 @@ button:hover {
     gap: 7px;
   }
 }
+
+.prank-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+}
+
+.prank-box {
+  width: min(500px, 90%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 105, 180, 0.5);
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  animation: popIn 0.4s ease;
+}
+
+.prank-box h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ff4d6d;
+}
+
+.prank-box p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.prank-box button {
+  margin-top: 18px;
+  padding: 10px 18px;
+  font-size: 15px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff4d6d, #ff8fa3);
+  color: white;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.prank-box button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+  
+}
+
+

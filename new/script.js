@@ -70,9 +70,78 @@ window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 drawStars();
 
+/***************** */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const prank = document.createElement("div");
+    prank.className = "prank-popup";
+    prank.innerHTML = `
+      <div class="prank-box">
+        <h2>⚠️ FRAUD WEBSITE ALERT ⚠️</h2>
+        <p>
+          This website has been reported for suspicious activity... <br>
+          Reason: <b>Stealing Hearts 💖</b> <br><br>
+          Please proceed only if you're ready to fall in love 😌
+        </p>
+        <button id="prank-close">Continue ❤️</button>
+      </div>
+    `;
+    document.body.appendChild(prank);
+
+    document.getElementById("prank-close").addEventListener("click", () => {
+      prank.remove();
+    });
+
+    setTimeout(() => prank.remove(), 6000);
+  }, 1200);
+});
+
 /*******************************************************
-  SPA PAGE CONTROL
+  SHARE FRAUD ALERT
 *******************************************************/
+function showShareFraudAlert() {
+  const alert = document.createElement("div");
+  alert.className = "prank-popup";
+  alert.innerHTML = `
+    <div class="prank-box">
+      <h2>🚨 WARNING - SCAM DETECTED 🚨</h2>
+      <p>
+        You're trying to share a <b>Heart-Stealing Website</b>! 💔 <br><br>
+        By sharing this, you admit that:<br>
+        ✓ You're totally in love 💕 <br>
+        ✓ You want to spread love around 😘 <br>
+        ✓ You're ready for romance 🥰
+      </p>
+      <button id="share-confirm">Yes, I'm Guilty! 💖</button>
+    </div>
+  `;
+  document.body.appendChild(alert);
+
+  document.getElementById("share-confirm").addEventListener("click", () => {
+    alert.remove();
+    // Copy URL to clipboard
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      // Optional: Show success message
+      console.log("URL copied to clipboard!");
+    });
+  });
+
+  setTimeout(() => alert.remove(), 5000);
+}
+
+// Share button handler
+document.addEventListener("DOMContentLoaded", () => {
+  const shareBtn = document.getElementById("share-btn");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", showShareFraudAlert);
+  }
+});
+
+// Copy to clipboard handler
+document.addEventListener("copy", () => {
+  showShareFraudAlert();
+});
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach(page => {
     page.classList.add("hidden");
@@ -120,7 +189,7 @@ const photos = [
   "photos/23.png",
   "photos/24.png",
   "photos/25.png",
-  "photos/26.png",
+  //"photos/26.png",
   "photos/27.png",
   "photos/28.png",
   "photos/29.png"
