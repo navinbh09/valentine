@@ -190,7 +190,7 @@ const photos = [
   "photos/24.png",
   "photos/25.png",
   //"photos/26.png",
-  "photos/27.png",
+  //"photos/27.png",
   "photos/28.png",
   "photos/29.png"
 ];
@@ -340,13 +340,16 @@ function disableCards() {
 
   if (matchedPairs === totalPairs) {
     setTimeout(() => {
-      statusText.innerText = "🎉 YOU WON! Your prize is ME 😌❤️";
-    }, 800);
+      statusText.innerText = "🎉 Congrats You Won Mr. Bhattuli as you price.";
+    }, 600);
 
+    // reveal the Next button so reviewer can inspect photos before moving on
     setTimeout(() => {
-      showPage("page-proposal");
-      initNoButton();
-    }, 2800);
+      const postWin = document.getElementById('post-win');
+      if (postWin) postWin.classList.remove('hidden');
+      const nextBtn = document.getElementById('next-btn');
+      if (nextBtn) nextBtn.focus();
+    }, 1000);
   }
 }
 
@@ -427,6 +430,45 @@ function resetHintCooldown() {
   hintBtn.disabled = false;
   hintBtn.innerText = "💡 Hint (Ready)";
   if (hintTimer) clearInterval(hintTimer);
+}
+
+/* Hidden skip button handler: immediately mark all cards matched and finish the game */
+const skipBtn = document.getElementById("skip-btn");
+function skipGame() {
+  const remaining = [...document.querySelectorAll('.card:not(.matched)')];
+  if (remaining.length === 0) return;
+
+  // flip and mark all remaining cards
+  remaining.forEach(c => {
+    c.classList.add('flipped');
+    c.classList.add('matched');
+  });
+
+  // update counters and UI
+  matchedPairs = totalPairs;
+  updateStatus();
+
+  setTimeout(() => {
+    statusText.innerText = "🎉 Congrats You Won Mr. Bhattuli as you price.";
+  }, 200);
+
+  setTimeout(() => {
+    const postWin = document.getElementById('post-win');
+    if (postWin) postWin.classList.remove('hidden');
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) nextBtn.focus();
+  }, 600);
+}
+
+if (skipBtn) skipBtn.addEventListener('click', skipGame);
+
+// Next button navigates to proposal page so user can review photos first
+const nextBtn = document.getElementById('next-btn');
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    showPage('page-proposal');
+    initNoButton();
+  });
 }
 
 /*******************************************************
