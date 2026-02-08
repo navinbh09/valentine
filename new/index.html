@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine Surprise ❤️</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Flying Stars Canvas Background -->
+  <canvas id="star-canvas"></canvas>
+
+  <!-- ==============================
+       PAGE 1: MEMORY GAME
+  =============================== -->
+  <section id="page-game" class="page active">
+
+    <h1>Malai Jitna Sajilo Xaina Hai ❤️</h1>
+      <p>Photo Ko Jodi Milam Ani Balla Hamro Jodi Milxa....🥰😘😜</p>
+
+    <!-- Centered Background Photos -->
+    <div class="center-photo" style="background-image: url('photos/8.png');"></div>
+    <div class="center-photo-2" style="background-image: url('photos/26.png');"></div>
+
+    <div class="game-container">
+
+    
+
+      <div id="game-board"></div>
+        <div class="game-topbar">
+        <div id="game-status">MILYOOO: 0 / 0 | Hints: 0</div>
+        <button id="hint-btn">💡 Hint (Ready)</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==============================
+       PAGE 2: PROPOSAL
+  =============================== -->
+  <section id="page-proposal" class="page hidden">
+
+    <h1>💖 Will you be my Valentine? 💖</h1>
+    <p>
+      Think carefully... because one of these buttons is lying 😭❤️
+    </p>
+
+    <div class="button-row">
+      <button id="btn-yes">YES! 💖</button>
+      <button id="btn-no">No 😢</button>
+    </div>
+<p> If you made to this page than I know you are my Valentine ❤️</p>
+  </section>
+
+  <!-- ==============================
+       PAGE 3: LOVE LETTER
+  =============================== -->
+  <section id="page-love" class="page hidden">
+
+    <div class="love-box">
+      <h2>Yay! I Love You! ❤️</h2>
+
+      <p>
+        You just made my heart the happiest in the universe 🌙✨ <br><br>
+        Every moment with you feels like magic, and I’m so lucky to have you.  
+        Thank you for being the sweetest part of my life 💖  
+        <br><br>
+        Happy Valentine’s Day, my love ❤️💞
+      </p>
+
+      <div class="final-photo">
+        📸 Final Photo Placeholder
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
